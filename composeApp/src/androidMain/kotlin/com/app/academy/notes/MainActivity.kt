@@ -1,6 +1,6 @@
 package com.app.academy.notes
 
-import App
+import com.app.academy.App
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent

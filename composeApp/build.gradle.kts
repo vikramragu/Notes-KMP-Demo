@@ -64,6 +64,9 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(projects.shared)
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.navigator.transitions)
+            implementation(libs.voyager.screenmodel)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
