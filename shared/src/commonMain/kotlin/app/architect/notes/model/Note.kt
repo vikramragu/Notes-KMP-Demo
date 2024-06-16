@@ -43,3 +43,27 @@ fun Note.toSavedNoteEntity(): SavedNoteEntity {
         isDeleted = if (this.isDeleted) 1 else 0
     )
 }
+
+val dummyNotes = listOf(
+    Note(
+        id = "id1",
+        title = "Dummy note 1",
+        content = "This is a test note 1",
+        createdAtTimestampMillis = 0L,
+        isDeleted = false
+    ),
+    Note(
+        id = "id2",
+        title = "Dummy note 2",
+        content = "This is a test note 2",
+        createdAtTimestampMillis = 1L,
+        isDeleted = false
+    ),
+    Note(
+        id = "id3",
+        title = "Dummy note 3",
+        content = "This is a test note 3",
+        createdAtTimestampMillis = 2L,
+        isDeleted = false
+    )
+)
