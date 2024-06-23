@@ -1,6 +1,5 @@
-package com.example.notes.utils
+package app.architect.notes.utils
 
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 
 /**
