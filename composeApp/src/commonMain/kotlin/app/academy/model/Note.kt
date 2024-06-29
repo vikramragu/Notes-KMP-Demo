@@ -46,7 +46,6 @@ val dummyNotes = listOf(
 
 /**
  * Used to convert a [SavedNoteEntity] to a [Note].
-
  */
 fun SavedNoteEntity.toNote(): Note {
     return Note(

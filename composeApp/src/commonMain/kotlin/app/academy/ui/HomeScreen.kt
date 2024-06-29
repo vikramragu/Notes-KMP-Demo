@@ -12,7 +12,7 @@ object HomeScreen : Screen {
     @Composable
     override fun Content() {
         LazyColumn(Modifier.fillMaxSize()) {
-            NoteItems(dummyNotes, onClick = {}) {
+            NoteItems(emptyList(), onClick = {}) {
                 //onDismissed
             }
         }
