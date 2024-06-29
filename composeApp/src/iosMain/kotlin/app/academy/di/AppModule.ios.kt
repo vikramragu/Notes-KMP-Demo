@@ -4,7 +4,7 @@ import app.academy.data.DefaultNotesRepository
 import app.academy.data.NotesRepository
 import app.academy.data.local.NotesDatabaseDriverFactory
 import app.academy.data.local.datasource.DefaultLocalNotesDataSource
-import com.example.notes.database.NotesDatabase
+import com.app.academy.notes.database.NotesDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 
