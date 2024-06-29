@@ -1,4 +1,4 @@
-package com.app.academy
+package com.app.academy.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -13,7 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import app.architect.notes.utils.Greeting
+import com.app.academy.utils.Greeting
 import cafe.adriel.voyager.core.screen.Screen
 import kmpnotes.composeapp.generated.resources.Res
 import kmpnotes.composeapp.generated.resources.compose_multiplatform

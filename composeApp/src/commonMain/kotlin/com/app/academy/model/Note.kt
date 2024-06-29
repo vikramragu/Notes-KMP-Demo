@@ -1,4 +1,4 @@
-package app.architect.notes.model
+package com.app.academy.model
 
 import com.example.notes.database.SavedNoteEntity
 

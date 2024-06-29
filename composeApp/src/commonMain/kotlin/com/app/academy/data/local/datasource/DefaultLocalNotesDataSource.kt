@@ -1,6 +1,6 @@
-package app.architect.notes.data.local.datasource
+package com.app.academy.data.local.datasource
 
-import app.architect.notes.data.local.datasource.LocalNotesDataSource
+import com.app.academy.data.local.datasource.LocalNotesDataSource
 import app.cash.sqldelight.coroutines.asFlow
 import app.cash.sqldelight.coroutines.mapToList
 import com.example.notes.database.NotesDatabase

@@ -1,9 +1,9 @@
-package app.architect.notes.data
+package com.app.academy.data
 
-import app.architect.notes.data.local.datasource.LocalNotesDataSource
-import app.architect.notes.model.Note
-import app.architect.notes.model.toNote
-import app.architect.notes.model.toSavedNoteEntity
+import com.app.academy.data.local.datasource.LocalNotesDataSource
+import com.app.academy.model.Note
+import com.app.academy.model.toNote
+import com.app.academy.model.toSavedNoteEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

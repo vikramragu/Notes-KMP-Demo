@@ -14,7 +14,9 @@ actual class NativeStateFlow<T> actual constructor(source: StateFlow<T>) : State
 
     fun subscribe(onCollect: (T) -> Unit): DisposableHandle {
         val scope = MainScope().apply {
-            launch(Dispatchers.Main) { collect(onCollect) }
+            launch(Dispatchers.Main) {
+                collect(onCollect)
+            }
         }
         return DisposableHandle { scope.cancel() }
     }

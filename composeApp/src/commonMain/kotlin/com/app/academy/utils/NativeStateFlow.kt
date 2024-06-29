@@ -1,11 +1,11 @@
-package app.architect.notes.utils
+package com.app.academy.utils
 
 import kotlinx.coroutines.flow.StateFlow
 
 /**
  * A cross platform implementation of [StateFlow].
  */
-expect class NativeStateFlow<T>(source: StateFlow<T>) : StateFlow<T>
+expect class NativeStateFlow<T>(value: StateFlow<T>) : StateFlow<T>
 
 /**
  * Used to convert a [StateFlow] to a [NativeStateFlow]

@@ -1,4 +1,4 @@
-package app.architect.notes.data.local.datasource
+package com.app.academy.data.local.datasource
 
 import com.example.notes.database.SavedNoteEntity
 

@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import app.architect.notes.model.Note
+import com.app.academy.model.Note
 
 /**
  * A composable that displays the information of a [Note], in a card. Some of the contents

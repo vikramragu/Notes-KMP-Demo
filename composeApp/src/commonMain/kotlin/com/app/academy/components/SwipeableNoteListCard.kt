@@ -9,7 +9,7 @@ import androidx.compose.material.SwipeToDismiss
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import app.architect.notes.model.Note
+import com.app.academy.model.Note
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

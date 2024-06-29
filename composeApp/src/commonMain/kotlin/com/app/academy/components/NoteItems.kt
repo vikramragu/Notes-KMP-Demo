@@ -7,7 +7,7 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.architect.notes.model.Note
+import com.app.academy.model.Note
 
 @OptIn(ExperimentalFoundationApi::class)
 fun LazyListScope.NoteItems(

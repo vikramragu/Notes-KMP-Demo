@@ -1,4 +1,4 @@
-package app.architect.notes.data.local
+package com.app.academy.data.local
 
 import app.cash.sqldelight.db.SqlDriver
 
@@ -8,5 +8,6 @@ object DatabaseDriverConstants {
 }
 
 expect class NotesDatabaseDriverFactory {
+
     fun createDriver(): SqlDriver
 }

@@ -1,6 +1,6 @@
-package app.architect.notes.data
+package com.app.academy.data
 
-import app.architect.notes.model.Note
+import com.app.academy.model.Note
 import kotlinx.coroutines.flow.Flow
 
 interface NotesRepository {

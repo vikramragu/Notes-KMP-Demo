@@ -1,4 +1,4 @@
-package app.architect.notes.utils
+package com.app.academy.utils
 
 class Greeting {
     private val platform = getPlatform()
