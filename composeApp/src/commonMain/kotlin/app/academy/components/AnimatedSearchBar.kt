@@ -27,7 +27,7 @@ import app.academy.utils.getWindowSize
 @OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalFoundationApi
 @Composable
-private fun AnimatedSearchBar(
+fun AnimatedSearchBar(
     query: String,
     isSearchBarActive: Boolean,
     onQueryChange: (String) -> Unit,
