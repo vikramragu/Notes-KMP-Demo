@@ -31,6 +31,8 @@ material3Android = "1.2.1"
 lifecycleViewmodelCompose = "2.7.0"
 kotlinVersion = "2.0.0"
 voyager = "1.0.0"
+kermit = "2.0.3"
+
 
 [libraries]
 androidx-core = { module = "androidx.test:core", version.ref = "core" }
@@ -63,6 +65,7 @@ runtime-v200 = { module = "app.cash.sqldelight:runtime", version.ref = "runtime"
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-navigator-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

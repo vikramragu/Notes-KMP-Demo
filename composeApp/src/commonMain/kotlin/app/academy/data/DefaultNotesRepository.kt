@@ -5,6 +5,7 @@ import app.academy.model.Note
 import app.academy.model.toNote
 import app.academy.model.toSavedNoteEntity
 import app.academy.notes.database.SavedNoteEntity
+import co.touchlab.kermit.Logger
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -14,6 +15,7 @@ class DefaultNotesRepository(
 
     override val savedNotesStream: Flow<List<Note>> =
         localNotesDataSource.savedNotesStream.map { savedNoteEntities ->
+            Logger.d("NotesCRUD") {"savednotes are ::$savedNoteEntities"}
             savedNoteEntities.map { savedNoteEntity: SavedNoteEntity -> savedNoteEntity.toNote() }
         }
 

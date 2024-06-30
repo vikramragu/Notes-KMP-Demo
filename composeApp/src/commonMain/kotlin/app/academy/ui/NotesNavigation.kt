@@ -9,7 +9,7 @@ import cafe.adriel.voyager.transitions.SlideTransition
 fun NotesAppNavigation(
     appModule: AppModule,
 ) {
-    Navigator(screen = HomeScreen) {
+    Navigator(screen = HomeScreen(appModule)) {
         SlideTransition(navigator = it)
     }
 }
