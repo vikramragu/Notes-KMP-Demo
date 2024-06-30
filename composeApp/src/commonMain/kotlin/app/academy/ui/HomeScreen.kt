@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -53,7 +54,7 @@ class HomeScreen(private val appModule: AppModule) : Screen {
         }
         var currentSearchQuery by remember { mutableStateOf("") }
         var isSearchBarActive by remember { mutableStateOf(false) }
-        LaunchedEffect(Unit){
+        LaunchedEffect(Unit) {
             Logger.d("NotesCRUD") { "HomeScreen called fetchNotes" }
             viewModel.fetchNotes()
         }
@@ -89,6 +90,10 @@ class HomeScreen(private val appModule: AppModule) : Screen {
                         }
                     )
                 }
+                item {
+                    Text("Currently its buggy - assignment #1 , ensure app functions and updates on new note")
+                }
+
                 NoteItems(uiState.savedNotes, onClick = {}) {
                     //onDismissed
                 }
