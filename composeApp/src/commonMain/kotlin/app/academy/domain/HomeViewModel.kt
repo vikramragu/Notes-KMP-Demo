@@ -34,38 +34,75 @@ class HomeViewModel(
     private val _uiState = MutableStateFlow(HomeScreenUiState(isLoadingSavedNotes = true))
     val uiState = _uiState.asNativeStateFlow()
 
-    private val currentSearchText = MutableStateFlow("")
+    private val currentSearchText = MutableStateFlow("-")
     private var recentlyDeletedNote: Note? = null
 
     init {
         notesRepository.savedNotesStream.onEach { savedNotesList ->
             Logger.d("NotesCRUD") { "Update: $savedNotesList" }
-            _uiState.update { it.copy(isLoadingSavedNotes = false, savedNotes = savedNotesList) }
+            _uiState.update {
+                it.copy(
+                    isLoadingSavedNotes = false,
+                    savedNotes = savedNotesList
+                )
+            }
         }.launchIn(viewModelScope)
 
         combine(
             uiState,
-            currentSearchText.debounce(200)
+            currentSearchText.debounce(300)
         ) { updatedUiState, searchText ->
+
             val savedNotes = updatedUiState.savedNotes
+
             // filtering notes with titles containing the search text
-            _uiState.update { it.copy(isLoadingSearchResults = true) }
+            _uiState.update {
+                it.copy(isLoadingSearchResults = true)
+            }
+
             val notesWithTitleContainingSearchText = savedNotes.filter {
                 it.title.contains(searchText, ignoreCase = true)
             }
-            _uiState.update { it.copy(searchResults = notesWithTitleContainingSearchText) }
+
+            _uiState.update {
+                it.copy(
+                    searchResults = notesWithTitleContainingSearchText
+                )
+            }
+
+            Logger.d("Search Text === "){
+                searchText
+            }
 
             // filtering notes with the content containing the search text.
             // Since this is slower than the previous filtering operation above,
             // update ui state independently
             val notesWithContentContainingSearchText = savedNotes.filter {
-                it.content.contains(searchText, ignoreCase = true)
+                it.content.contains(
+                    searchText,
+                    ignoreCase = true
+                )
             }
-            _uiState.update {
-                it.copy(searchResults = (it.searchResults + notesWithContentContainingSearchText).distinct())
+
+            Logger.d("Notes with Content === "){
+                notesWithContentContainingSearchText.toString()
             }
+
+
+                _uiState.update {
+                    it.copy(
+                        searchResults = (
+                                it.searchResults
+                                + notesWithContentContainingSearchText
+                                ).distinct()
+                    )
+                }
+
+
             _uiState.update {
-                it.copy(isLoadingSearchResults = false)
+                it.copy(
+                    isLoadingSearchResults = false
+                )
             }
 
         }.flowOn(defaultDispatcher).launchIn(viewModelScope)
@@ -81,7 +118,12 @@ class HomeViewModel(
     fun fetchNotes() {
         notesRepository.savedNotesStream.onEach { savedNotesList ->
             Logger.d("NotesCRUD") { "Update: $savedNotesList" }
-            _uiState.update { it.copy(isLoadingSavedNotes = false, savedNotes = savedNotesList) }
+            _uiState.update {
+                it.copy(
+                    isLoadingSavedNotes = false,
+                    savedNotes = savedNotesList
+                )
+            }
         }.launchIn(viewModelScope)
     }
 
@@ -93,7 +135,11 @@ class HomeViewModel(
     }
 
     fun restoreRecentlyDeletedNote() {
-        viewModelScope.launch { recentlyDeletedNote?.let { notesRepository.saveNote(it) } }
+        viewModelScope.launch {
+            recentlyDeletedNote?.let {
+                notesRepository.saveNote(it)
+            }
+        }
     }
 
 }

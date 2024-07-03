@@ -39,6 +39,7 @@ class HomeScreen(private val appModule: AppModule) : Screen {
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         val coroutineScope = rememberCoroutineScope()
+
         val viewModel: HomeViewModel =
             navigator.rememberNavigatorScreenModel {
                 HomeViewModel(
@@ -46,19 +47,27 @@ class HomeScreen(private val appModule: AppModule) : Screen {
                     appModule = appModule
                 )
             }
+
         DisposableEffect(Unit) {
             Logger.d("NotesCRUD") { "HomeScreen is running" }
             onDispose {
                 Logger.d("NotesCRUD") { "HomeScreen is disposed" }
             }
         }
+
         var currentSearchQuery by remember { mutableStateOf("") }
         var isSearchBarActive by remember { mutableStateOf(false) }
+
         LaunchedEffect(Unit) {
             Logger.d("NotesCRUD") { "HomeScreen called fetchNotes" }
             viewModel.fetchNotes()
         }
+
         val uiState by viewModel.uiState.collectAsState()
+
+        println("UiState Saved Notes = ${uiState.savedNotes.size}")
+        println("UiState Search Results ${uiState.searchResults.size}")
+
         Box(Modifier.fillMaxSize()) {
             LazyColumn(Modifier.fillMaxSize()) {
                 item {
@@ -106,7 +115,12 @@ class HomeScreen(private val appModule: AppModule) : Screen {
                 onClick = {
                     navigator.push(NoteDetailScreen(appModule))
                 },
-                content = { Icon(imageVector = Icons.Filled.Add, contentDescription = null) }
+                content = {
+                    Icon(
+                        imageVector = Icons.Filled.Add,
+                        contentDescription = null
+                    )
+                }
             )
         }
     }

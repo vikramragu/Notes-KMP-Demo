@@ -20,6 +20,11 @@ class DefaultLocalNotesDataSource(
             .mapToList(ioDispatcher)
 
     override suspend fun saveNote(noteEntity: SavedNoteEntity) = withContext(ioDispatcher) {
+
+        co.touchlab.kermit.Logger.d("Save Note Verify = "){
+            noteEntity.toString()
+        }
+
         queries.insertNote(
             id = noteEntity.id,
             title = noteEntity.title,

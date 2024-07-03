@@ -25,6 +25,7 @@ class NoteDetailViewModel(
     private val currentNoteId: String?,
     private val notesRepository: NotesRepository,
     coroutineScope: CoroutineScope?
+
 ) : ScreenModel {
 
     private val viewModelScope =
@@ -42,9 +43,13 @@ class NoteDetailViewModel(
     init {
         viewModelScope.launch {
             currentNote = getOrCreateNoteWithId(currentNoteId ?: UUID.randomUUIDString())
-            _titleText.update { currentNote.title }
-            _contentText.update { currentNote.content }
-            val debounceTimeout = 200L
+            _titleText.update {
+                currentNote.title
+            }
+            _contentText.update {
+                currentNote.content
+            }
+            val debounceTimeout = 500L
             combine(
                 _titleText.debounce(timeoutMillis = debounceTimeout).distinctUntilChanged(),
                 _contentText.debounce(timeoutMillis = debounceTimeout).distinctUntilChanged()
@@ -58,7 +63,9 @@ class NoteDetailViewModel(
                     title = updatedTitleText,
                     content = updatedContentText
                 )
-                Logger.d("NotesCRUD") { "Saving Note $updatedNote" }
+                Logger.d("NotesCRUD") {
+                    "Saving Note $updatedNote"
+                }
                 notesRepository.saveNote(updatedNote)
             }.launchIn(this)
         }

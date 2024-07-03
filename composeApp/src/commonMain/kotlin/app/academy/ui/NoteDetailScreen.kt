@@ -36,12 +36,18 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 
-class NoteDetailScreen(private val appModule: AppModule, private val noteId: String? = null) :
+class NoteDetailScreen(
+    private val appModule: AppModule,
+    private val noteId: String? = null) :
+
     Screen {
+
     @Composable
     override fun Content() {
+
         val navigator = LocalNavigator.currentOrThrow
         val coroutineScope = rememberCoroutineScope()
+
         val viewModel: NoteDetailViewModel =
             navigator.rememberNavigatorScreenModel {
                 NoteDetailViewModel(
@@ -50,8 +56,10 @@ class NoteDetailScreen(private val appModule: AppModule, private val noteId: Str
                     coroutineScope = coroutineScope
                 )
             }
+
         val noteTitle by viewModel.titleTextStream.collectAsState()
         val noteContent by viewModel.contentTextStream.collectAsState()
+
         NoteDetailScreenContent(
             noteTitle = noteTitle,
             noteContent = noteContent,
@@ -78,7 +86,8 @@ fun NoteDetailScreenContent(
     val scrollState = rememberScrollState()
     // without adding scrollState modifier, the "note content" TextField inside this composable
     // will scroll independent of the screen. This behavior is undesirable, hence use scroll state.
-    Column(modifier = modifier.verticalScroll(scrollState)) {
+    Column(
+        modifier = modifier.verticalScroll(scrollState)) {
         IconButton(
             modifier = Modifier.statusBarsPadding(),
             onClick = onBackButtonClick,
