@@ -66,7 +66,7 @@ class NoteDetailScreen(
             onNoteTitleChange = viewModel::onTitleChange,
             onNoteContentChange = viewModel::onContentChange,
             onBackButtonClick = {
-                viewModel.clear()
+                //viewModel.clear()
                 navigator.pop()
             }
         )

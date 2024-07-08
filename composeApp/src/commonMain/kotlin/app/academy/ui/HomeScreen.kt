@@ -99,9 +99,9 @@ class HomeScreen(private val appModule: AppModule) : Screen {
                         }
                     )
                 }
-                item {
-                    Text("Currently its buggy - assignment #1 , ensure app functions and updates on new note")
-                }
+                //item {
+                //    Text("Currently its buggy - assignment #1 , ensure app functions and updates on new note")
+                //}
 
                 NoteItems(uiState.savedNotes, onClick = {}) {
                     //onDismissed
